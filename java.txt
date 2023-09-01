@@ -1,0 +1,55 @@
+Static keyword
+static variables shared by all the objects.
+static variables are the class members not the object members
+they can be accessed with class name.
+
+class Mobile {
+    String brand;
+    int price;
+    static String name;
+
+    public void show() {
+        System.out.println(brand + " : " + price + " : " + name);
+    }
+}
+
+
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+Mobile.name = "SmartPhone";
+Mobile obj2 = new Mobile();
+obj2.brand = "Samsung";
+obj2.price = 1700;
+Mobile.name = "Phone";
+obj1.show();
+obj2.show();
+
+Static Method
+// static variables inside non-static method - accepted
+// static variables inside static method - accepted
+// non - static variables inside non-static method - accepted
+// non - static variables inside static method - not accepted directly
+// but indirectly we can accept them i.e by passing object reference
+
+class Mobile {
+    String brand;
+    int price;
+    static String name;
+
+    public static void show(Mobile obj) {
+        System.out.println(obj.brand + " : " + obj.price + " : " + name);
+    }
+}
+
+Mobile obj1 = new Mobile();
+obj1.brand = "Apple";
+obj1.price = 1500;
+Mobile.name = "SmartPhone";
+Mobile obj2 = new Mobile();
+obj2.brand = "Samsung";
+obj2.price = 1700;
+// Mobile.name = "Phone";
+Mobile.show(obj1);
+Mobile.show(obj2);
+
