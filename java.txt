@@ -53,3 +53,141 @@ obj2.price = 1700;
 Mobile.show(obj1);
 Mobile.show(obj2);
 
+
+// static block 
+// used for intializing the static variables at the time of class loading.
+// as we know JVM will creates an object by taking the class as an input
+// in order to create an object JVM first loads the class into the class loader 
+// so the static block and everything will be executed
+// next time as the class was already loaded no static block will be executed
+// only constructor will be called at the time of object creation.
+// with creating an object class will be loaded with forName(). 
+class Mobile {
+    String brand;
+    int price;
+    static String name;
+
+    // syntax for intializing the static variables
+    static {
+        name = "Phone";
+        System.out.println("in static block");
+    }
+
+    Mobile() {
+        brand = "Nokia";
+        price = 500;
+        System.out.println("in constructor");
+    }
+
+    // public static void show(Mobile obj) {
+    // System.out.println(obj.brand + " : " + obj.price + " : " + name);
+    // }
+}
+
+
+Class.forName("Mobile");
+// Mobile obj1 = new Mobile();
+// obj1.brand = "Apple";
+// obj1.price = 1500;
+// Mobile.name = "SmartPhone";
+// Mobile obj2 = new Mobile();
+// obj2.brand = "Samsung";
+// obj2.price = 1700;
+// Mobile.name = "Phone";
+// Mobile.show(obj1);
+// Mobile.show(obj2);
+
+// Encapsulation - process of binding of data with methods.
+// setters and getters - fetching and setting the data with methods
+class Mobile {
+    private int age;
+    private String name;
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+Mobile obj = new Mobile();
+obj.setAge(20);
+obj.setName("Deepak");
+System.out.println(obj.getAge() + " : " + obj.getName());
+
+
+// constructor - Method which was used to intialize the instance variables
+// Called whenever we create an object
+// No return type and same name as className.
+
+// constructor which does not take anything is called as default constructor
+// constructor which takes parameters is called as parameterized constructor
+
+class Mobile {
+    private int age;
+    private String name;
+
+    Mobile() {
+        System.out.println("Default Constructor");
+    }
+
+    Mobile(int age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
+    // public void setAge(int age) {
+    // this.age = age;
+    // }
+
+    // public void setName(String name) {
+    // this.name = name;
+    // }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+
+// this and super method
+// this() - calls the current class constructor
+// super() - calls the super class constructor
+
+class Parent extends Object {
+    Parent() {
+        super();
+        System.out.println("Parent constructor");
+    }
+
+    Parent(int num) {
+        super();
+        System.out.println("Parent parameterized constructor");
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        super();
+        System.out.println("Child constructor");
+    }
+
+    Child(int num) {
+        this();
+        System.out.println("Child parameterized constructor");
+    }
+}
