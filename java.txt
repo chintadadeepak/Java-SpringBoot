@@ -191,3 +191,39 @@ class Child extends Parent {
         System.out.println("Child parameterized constructor");
     }
 }
+
+// anonymous object
+// an object which does not have reference 
+// it can not be used more than once.
+// object creation involves two steps
+// 1. object creation
+// 2. assigning that address to the reference variable.
+class Mobile {
+    Mobile() {
+        System.out.println("in constructor..");
+    }
+
+    public void show() {
+        System.out.println("in show method..");
+    }
+}
+
+new Mobile().show();
+// anonynous object
+new Mobile().show();
+
+// inheritance
+// process of acquiring the properties and methods
+// from a base class by the derived class
+
+VeryAdvCalc obj = new VeryAdvCalc();
+int r1 = obj.add(3, 4);
+int r2 = obj.sub(5, 2);
+int r3 = obj.multi(3, 4);
+int r4 = obj.div(5, 2);
+double r5 = obj.power(3, 4);
+System.out.println(r1 + " : " + r2);
+System.out.println(r3 + " : " + r4 + " : " + r5);
+
+// Multiple inheritance is not supported in java because
+// of the ambiguity
