@@ -227,3 +227,47 @@ System.out.println(r3 + " : " + r4 + " : " + r5);
 
 // Multiple inheritance is not supported in java because
 // of the ambiguity
+
+
+// packages
+// packages are the modules where related grouped files are kept inside a folder
+
+// access-modifiers 
+// access-modifiers will allow users to access the methods and instance variables based
+// based upon the access given to them
+
+public:
+same class - true
+same package - subclass - true
+same package - non-subclass - true 
+different package - subclass - true
+different package - non-subclass - true
+
+
+private:
+same class - true
+same package - subclass - false
+same package - non-subclass - false 
+different package - subclass - false
+different package - non-subclass - false
+
+
+default:
+same class - true
+same package - subclass - true
+same package - non-subclass - true 
+different package - subclass - false
+different package - non-subclass - false
+
+
+protected:
+same class - true
+same package - subclass - true
+same package - non-subclass - true 
+different package - subclass - true
+different package - non-subclass - false
+
+
+
+
+
