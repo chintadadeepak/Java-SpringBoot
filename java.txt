@@ -267,6 +267,66 @@ same package - non-subclass - true
 different package - subclass - true
 different package - non-subclass - false
 
+// polymorphism - poly - many, morphism - behaviour
+// the reference will show different bahaviour based upon the way that the object you
+// are assigning to that reference
+
+// polymorphism is of two types
+// 1. compile time polymorphism --> method overloading
+// 2. run time polymorphism --> method overriding, dynamic method dispatch
+// runtime polymorphism here is depending upon the object that you are it's method
+// will be executed
+
+// dynamic method dispatch
+// you can assign the child implementation to the parent reference
+// because every child is derived from the parent
+class Parent {
+    public void show() {
+        System.out.println("In parent");
+    }
+}
+
+class Child1 extends Parent {
+    public void show() {
+        System.out.println("In child-1");
+    }
+}
+
+class Child2 extends Parent {
+    public void show() {
+        System.out.println("In child-2");
+    }
+}
+
+Parent obj = new Parent(); // both object implementation and reference type is Parent
+                                   // parent method will be called
+obj.show();
+obj = new Child1(); // reference parent type and implementation child type.
+obj.show();
+obj = new Child2(); // reference parent type and implementation child type.
+obj.show();
+
+// final variable - final makes a variable constant.
+// final class - Final class can not be inherited
+// final method - stopping the method overriding
+
+class Parent {
+    public final void show() {
+        System.out.println("in Parent");
+    }
+}
+
+class Child extends Parent {
+    // public void show() {
+    //     System.out.println("in Child");
+    // }
+}
+
+// final float PIE = 3.14f;
+// PIE = 3.15f;
+Child obj = new Child();
+obj.show();
+
 
 
 
