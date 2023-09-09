@@ -327,7 +327,71 @@ class Child extends Parent {
 Child obj = new Child();
 obj.show();
 
+// Object Class
+// by default any class which is not under inheritance will extend the Object class
+// if try to print an object reference, it will call toString() implicitly
+class Human {
+    int age;
+    String name;
 
+    public boolean equals(Human obj) {
+        return this.age == obj.age && this.name.equals(obj.name);
+    }
+}
+
+Human obj1 = new Human();
+Human obj2 = new Human();
+obj1.age = 15;
+obj1.name = "deepak";
+obj2.age = 15;
+obj2.name = "deepak";
+System.out.println(obj1.equals(obj2));
+// System.out.println(obj1); // implicitly calls the toString()
+// System.out.println(obj1.toString());
+
+// Upcasting and Downcasting
+
+class Parent {
+    public void show1() {
+        System.out.println("in parent show");
+    }
+}
+
+class Child extends Parent {
+    public void show2() {
+        System.out.println("in child show");
+    }
+}
+
+
+Parent obj = new Child(); // converting child class implementation
+// to parent class --> upcasting
+obj.show1();
+Child obj1 = (Child) obj; // converting a parent class reference
+// to child class
+// obj.show2();
+obj1.show1();
+obj1.show2();
+
+// Wrapper Class - wrapper means some wrapper around the primtive values
+// dealing with Collection API
+// In Collection API we will work with Objects
+// for every primtive type we have a corresponding wrapper class
+// ex : int --> Integer, double --> Double, char --> Character
+
+
+// Integer num = new Integer(5); // this syntax is deprecated
+// this process is called as boxing
+// System.out.println(num);
+Integer num = 5; // auto-boxing --> assigning primtive values directly to the wrapper class
+                    // reference
+System.out.println(num);
+int num1 = num.intValue();
+int num2 = num;
+// you can follow one of the above.
+// both will work
+// the process is called as auto-unboxing
+System.out.println(num1 + " " + num2);
 
 
 
