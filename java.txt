@@ -393,5 +393,104 @@ int num2 = num;
 // the process is called as auto-unboxing
 System.out.println(num1 + " " + num2);
 
+// abstract keyword
+// just declaring the methods 
+// implementation will be done by other classes
+// abstract class can have abstract methods, non-abstract-methods and combination of both
+// abstract class can not be instantiated
+// If a class extending the abstract class then it should implement all the abstract methods
+// or If it was not able to implement all the methods
+// make that extending class abstract
+// If any class contains even one abstract method, then that class should be made as abstract
+// classes which contain abstract methods are called as abstract classes
+// classes which implement the abstract methods are called as concrete class
+// we can instantiate the concrete class
+abstract class Car {
+    public abstract void selfDrive();
+
+    public void musicSystem() {
+        System.out.println("playing music");
+    }
+
+    public abstract void engineConfig();
+}
+
+abstract class Ford extends Car {
+    public void engineConfig() {
+        System.out.println("Engine configured");
+    }
+}
+
+class Tesla extends Ford {
+    public void selfDrive() {
+        System.out.println("self-automated car");
+    }
+}
+
+Car obj = new Tesla();
+obj.musicSystem();
+obj.selfDrive();
+obj.engineConfig();
+
+// inner class - class within a class
+// for accessing the child class members you need an object.
+// you can create an object with help outer class object or if class static we can create the help of outer className.
+// static class will only for inner class we can not use static keyword for outer class
+class Parent {
+    int age;
+
+    public void parentShow() {
+        System.out.println("in parent show");
+    }
+
+    static class Child {
+        public void childShow() {
+            System.out.println("in child show");
+        }
+    }
+}
+
+// Parent obj1 = new Parent();
+// Parent.Child obj2 = obj1.new Child(); // this one way, where the class was
+// non-static
+// obj2.childShow();
+Parent.Child obj = new Parent.Child(); // this syntax will work if the inner class was static
+obj.childShow();
+
+// anonymous class - the class which does not have any name.
+// This is used when dev's want to override the implementation of any method
+// without the concept of overriding and generating the bytecode
+// for the overridden class 
+// in the below syntax we've defined a class which does not have any name
+// but it overridding the method show
+
+class Human {
+    public void show() {
+        System.out.println("In human show");
+    }
+}
+
+Human obj = new Human() {
+    public void show() {
+        System.out.println("in alien show");
+    }
+}; // This implementation is called as inner class
+obj.show();
+
+// anonymous and inner class
+// as we know we can not instantiate 
+// Now we instantiate the abstract class, but the point is we are instantiating the inner class not the abstarct class
+abstract class Car {
+    public abstract void selfDrive();
+}
+
+Car obj = new Car() {
+    public void selfDrive() {
+        System.out.println("self-driving");
+    }
+}; // here we've instantiated the inner class
+    // not the Car which was an abstract class
+obj.selfDrive();
+
 
 
