@@ -492,5 +492,148 @@ Car obj = new Car() {
     // not the Car which was an abstract class
 obj.selfDrive();
 
+class Desktop implements Computer {
+    public void code() {
+        System.out.println("code, compile and run in faster way");
+    }
+}
+
+class Laptop implements Computer {
+    public void code() {
+        System.out.println("code, compile and run");
+    }
+}
+
+class Developer {
+    public void devApp(Computer com) {
+        com.code();
+    }
+}
+
+Computer com1 = new Laptop();
+Computer com2 = new Desktop();
+Developer dev = new Developer();
+dev.devApp(com2);
+
+// need of interface
+// in computer class we just declared and not defined the body of 
+// code for code method
+// instead of abstract class, we can use interface which will 100% abstraction
+
+// interface 
+// with interface we can acheive 100% abstraction
+// they can not be instantiated
+// If a class not able to implement all the methods then 
+// make that class as abstract
+// inheritance is supported with interfaces
+// the instance variables of interface are final and static
+// but why?
+// when a concrete class trys to implement an interface
+// it will able to access only the methods not the instance variables
+// hence they were made static
+// why final?
+// interface will not get any space inside the heap hence they instance variables are 
+// final
+interface Computer {
+    int age = 20;
+    String name = "deepak";
+
+    void code();
+
+    void config();
+}
+
+// interface Laptop extends Computer {
+// // void show();
+// }
+
+class Desktop implements Computer { // concrete class
+    public void code() {
+        System.out.println("coding..");
+    }
+
+    public void config() {
+        System.out.println("config..");
+    }
+
+    // public void show() {
+    // System.out.println("in show..");
+    // }
+}
+
+Computer com = new Desktop();
+com.code();
+com.config();
+System.out.println(Computer.age + " : " + Computer.name);
+
+// enum
+// we can apply enum objects with if and switch statement
+enum Status {
+    Running, Pending, Failed, Success; // Objects of type Status
+}
+
+Status obj = Status.Running;
+// Status[] statuses = Status.values();
+// for (Status status : statuses)
+// System.out.println(status + " : " + status.ordinal());
+// System.out.println(obj.ordinal());
+// if (obj.equals(Status.Failed))
+// System.out.println("failed");
+// else if (obj.equals(Status.Pending))
+// System.out.println("pending");
+// else if (obj.equals(Status.Success))
+// System.out.println("success");
+// else
+// System.out.println("running");
+
+switch (obj) {
+    case Running:
+        System.out.println("Running");
+        break;
+    case Pending:
+        System.out.println("Pending");
+        break;
+    case Success:
+        System.out.println("Success");
+        break;
+    case Failed:
+        System.out.println("Failed");
+        break;
+}
+
+
+// enum class
+// enum class extends Enum class
+enum Laptop {
+    // Running;
+    MacBook(2000), XPS(2200), Surface, ThinkPad(2000);
+
+    private int price;
+
+    Laptop() {
+        this.price = 500;
+    }
+
+    Laptop(int price) {
+        this.price = price;
+        System.out.println("constructor called..");
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+}
+
+// Laptop macbook = Laptop.MacBook;
+// System.out.println(macbook.price);
+for (Laptop laptop : Laptop.values())
+    System.out.println(laptop + " : " + laptop.getPrice());
+// Laptop lap = Laptop.Running;
+// System.out.println(lap.getClass());
 
 
