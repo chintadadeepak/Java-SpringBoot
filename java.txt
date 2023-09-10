@@ -637,3 +637,39 @@ for (Laptop laptop : Laptop.values())
 // System.out.println(lap.getClass());
 
 
+// annotations --> providing extra info to the compiler
+class Parent {
+    public void showMeTheData() {
+        System.out.println("In parent show");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    public void showMeTheData() {
+        System.out.println("In child show");
+    }
+}
+
+// Functional or single abstract method interface
+// an interface which have only one method 
+// lambda expression 
+// lambda expression only work with functional interfaces
+// lambda means using arrow operator
+// if only statement in the method, remove that curly braces too.
+// else keep the curly braces
+// interfaces are 3 types
+// 1. Normal --> having more than one method
+// 2. functional --> having only one.
+// 3. Marker --> zero methods --> only for updating to compiler, permissions etc
+interface A {
+    int add(int i, int j);
+    // void show(int i);
+}
+
+// A obj = i -> System.out.println("in show " + i);
+// obj.show(5); lambda expression which does not return anything
+// A obj = (i, j) -> i + j;
+// System.out.println(obj.add(3, 4)); lambda expression which returns a value
+
+
